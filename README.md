@@ -40,14 +40,26 @@ Uno de los productos tiene `stock: 0` para que la interfaz pueda manejar la aler
 ## Estructura del proyecto
 
 - `src/`
+  - `assets/`
+    - `hero.png`
+    - `react.svg`
+    - `vite.svg`
   - `componentes/`
     - `BarraNavegacion.jsx`
     - `FiltrosBusqueda.jsx`
     - `TarjetaProducto.jsx`
     - `ListaProductos.jsx`
     - `FormularioStock.jsx`
+    - `ModalImagen.jsx`
+    - `estilos.css`
   - `datos/`
     - `productosBase.json`
+  - `imagenes/`
+    - `2084308839416_2.jpg`
+    - `OIP (1).jpg`
+    - `OIP.jpg`
+    - `OIP2.webp`
+    - `banner-sport-store.svg`
   - `App.jsx`
   - `main.jsx`
 
@@ -84,23 +96,4 @@ En esta tercera evaluación, se consolidó con éxito la base técnica y estruct
 - Edición y guardado local: el formulario de `Planificación de stock` ahora carga el producto seleccionado, permite editar `nombre` y `stock` y guardar los cambios en memoria (estado local de la app).
 - Interacción accesible: las tarjetas se pueden activar con teclado (`Enter` o `Space`).
 - Mejora visual: nueva barra de navegación, banner y estilos pensados para una experiencia coherente con una tienda deportiva.
-
-## Cómo usar
-
-1. Ejecuta la aplicación en modo desarrollo:
-
-```bash
-npm install
-npm run dev
-```
-
-2. Abrir `http://localhost:5173/` (o la URL que muestre Vite).
-
-3. Filtrar y buscar productos usando la sección de filtros.
-
-4. Seleccionar una tarjeta de producto para editar su `nombre` o `stock` en el panel de `Planificación de stock`.
-
-5. Pulsar `Guardar cambios` para aplicar la modificación en la sesión (estado local).
-
-Nota: los cambios se guardan en memoria del cliente; para persistencia remota se integrará un backend o almacenamiento local en próximas iteraciones.
 
