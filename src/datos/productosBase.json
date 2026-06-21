@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Zapatillas de running",
+    "categoria": "calzado",
+    "precio": 74900,
+    "stock": 12
+  },
+  {
+    "id": 2,
+    "nombre": "Camiseta deportiva",
+    "categoria": "ropa",
+    "precio": 24900,
+    "stock": 25
+  },
+  {
+    "id": 3,
+    "nombre": "Muñequera deportiva",
+    "categoria": "accesorios",
+    "precio": 12900,
+    "stock": 0
+  },
+  {
+    "id": 4,
+    "nombre": "Short de entrenamiento",
+    "categoria": "ropa",
+    "precio": 31900,
+    "stock": 18
+  }
+]
