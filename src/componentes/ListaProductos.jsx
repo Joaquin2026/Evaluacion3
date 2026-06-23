@@ -1,6 +1,6 @@
 import TarjetaProducto from './TarjetaProducto'
 
-function ListaProductos({ productos }) {
+function ListaProductos({ productos, onSelect, selectedProductId, onShowImage }) {
   if (productos.length === 0) {
     return <p>No hay productos que coincidan con los filtros.</p>
   }
@@ -8,7 +8,13 @@ function ListaProductos({ productos }) {
   return (
     <section className="lista-productos">
       {productos.map((producto) => (
-        <TarjetaProducto key={producto.id} producto={producto} />
+        <TarjetaProducto
+          key={producto.id}
+          producto={producto}
+          onSelect={() => onSelect(producto)}
+          selected={selectedProductId === producto.id}
+          onShowImage={onShowImage}
+        />
       ))}
     </section>
   )

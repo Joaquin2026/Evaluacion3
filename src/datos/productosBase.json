@@ -4,27 +4,31 @@
     "nombre": "Zapatillas de running",
     "categoria": "calzado",
     "precio": 74900,
-    "stock": 12
+    "stock": 12,
+    "imagen": "2084308839416_2.jpg"
   },
   {
     "id": 2,
     "nombre": "Camiseta deportiva",
     "categoria": "ropa",
     "precio": 24900,
-    "stock": 25
+    "stock": 25,
+    "imagen": "OIP (1).jpg"
   },
   {
     "id": 3,
     "nombre": "Muñequera deportiva",
     "categoria": "accesorios",
     "precio": 12900,
-    "stock": 0
+    "stock": 0,
+    "imagen": "OIP.jpg"
   },
   {
     "id": 4,
     "nombre": "Short de entrenamiento",
     "categoria": "ropa",
     "precio": 31900,
-    "stock": 18
+    "stock": 18,
+    "imagen": "OIP2.webp"
   }
 ]
