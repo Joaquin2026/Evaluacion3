@@ -18,12 +18,15 @@ Sport Store es una tienda de deportes enfocada en el control de inventario. La a
 - Buscar productos por nombre.
 - Filtrar productos por categoría.
 - Identificar rápidamente productos con stock agotado (`stock: 0`).
-- Preparar un formulario de stock deshabilitado como base para un CRUD futuro.
+- Crear, editar y eliminar productos desde un formulario de stock.
+- Guardar los cambios de forma local mediante `localStorage`.
+- Consultar un tipo de cambio de referencia desde una API externa.
+- Mostrar una equivalencia automática de precios entre USD y CLP.
 
 ## Funcionalidades Propuestas y Escalabilidad (Planificación CRUD y API)
 Para cumplir con los objetivos de crecimiento del proyecto hacia la Evaluación 4, se proyectan las siguientes implementaciones sobre esta base técnica:
-* **Persistencia y Operaciones CRUD:** Se planifica la manipulación del estado global para permitir la creación de nuevos artículos deportivos mediante el formulario de entrada, la edición de stock directamente en las tarjetas y la eliminación de productos obsoletos, almacenando todo de forma local.
-* **Integración con Información Externa (API):** La aplicación está diseñada estructuralmente para conectarse en la próxima etapa a una API de indicadores económicos (como Mindicador.cl). Esto aportará valor permitiendo transformar los costos de importación de los productos desde dólares (USD) a pesos chilenos (CLP) en tiempo real.
+* **Persistencia y Operaciones CRUD:** Se manipula el estado local para permitir la creación de nuevos artículos deportivos mediante el formulario, la edición de stock y la eliminación de productos obsoletos, almacenando todo de forma local.
+* **Integración con Información Externa (API):** La aplicación está conectada a una API de indicadores económicos (Mindicador.cl) para transformar los costos de importación desde dólares (USD) a pesos chilenos (CLP) en tiempo real.
 
 ## Datos iniciales
 
@@ -56,11 +59,12 @@ Uno de los productos tiene `stock: 0` para que la interfaz pueda manejar la aler
     - `OIP.jpg`
     - `OIP2.webp`
     - `banner-sport-store.svg`
+  - `utils/`
+    - `precios.js`
   - `App.jsx`
   - `main.jsx`
 
 > Nota: se eliminaron `src/App.css` y `src/index.css` ya que la SPA no requiere estilos globales adicionales en esta etapa.
-
 
 ## Prompts utilizados
 
@@ -79,6 +83,21 @@ hola necesito iniciar un proyecto desde cero para una SPA utilizando React y Vit
 5. **Prompt para corregir errores y usar las imágenes reales**
    - "Revisa el código y corrige los errores de imports y datos indefinidos, carga las imágenes que se agregaron a `src/imagenes` para cada producto (camiseta, short, muñequera, zapatilla), y asegúrate de que la app compile correctamente con `npm run build`."
 
+6. **Prompt para completar el CRUD y mejorar validación**
+   - "Necesitamos arreglar los puntos del formulario para tener un CRUD completo como en FormularioStock.jsx, además de mejorar la validación de datos, bloqueando valores como stock negativo, texto no numérico o campos vacíos de forma más estricta."
+
+7. **Prompt para integrar la API de cambio y mejorar la experiencia del formulario**
+   - "Necesitamos integrar la conversión de USD a CLP de forma segura y mejorar la experiencia del formulario con mensajes de estado, navegación útil y una equivalencia automática de precios."
+
+8. **Prompt para mejorar la navegación y la utilidad de los botones**
+   - "Necesitamos arreglar en la navegación que los botones de inventario, reportes e inicio cumplan una función útil en la aplicación web, no solo ser visuales."
+
+9. **Prompt para mejorar la experiencia visual de los productos e imágenes**
+   - "Necesitamos cambiar la imagen del producto 'Short de entrenamiento' por la imagen OIP2.webp y asegurar que se vea correctamente en la tarjeta."
+
+10. **Prompt para corregir errores de precio al alternar entre CLP y USD**
+   - "Necesitamos arreglar el bug del formulario de precio para que al cambiar entre CLP y USD no se creen valores incorrectos ni se pierda la edición del precio."
+
 ## Explicación General del Avance Realizado
 En esta tercera evaluación, se consolidó con éxito la base técnica y estructural de la SPA utilizando React + Vite. Los avances principales corresponden a:
 1. **Análisis y Diseño:** Definición clara del contexto del cliente, sus problemáticas de stock y la planificación de la arquitectura de software.
@@ -89,7 +108,9 @@ En esta tercera evaluación, se consolidó con éxito la base técnica y estruct
 ## Cambios recientes y funcionalidades implementadas
 
 - Selección de producto: puedes hacer click en una tarjeta para seleccionarla; la tarjeta seleccionada se resalta.
-- Edición y guardado local: el formulario de `Planificación de stock` ahora carga el producto seleccionado, permite editar `nombre` y `stock` y guardar los cambios en memoria (estado local de la app).
-- Interacción accesible: las tarjetas se pueden activar con teclado (`Enter` o `Space`).
-- Mejora visual: nueva barra de navegación, banner y estilos pensados para una experiencia coherente con una tienda deportiva.
+- CRUD funcional: el formulario permite crear, editar y eliminar productos, y los cambios se guardan localmente en memoria y en `localStorage`.
+- Validación estricta: se bloquean valores inválidos como stock negativo, campos vacíos o precios no numéricos.
+- Integración de API: se consulta un tipo de cambio de referencia desde Mindicador.cl para apoyar la conversión de USD a CLP.
+- Navegación útil: los botones de navegación dirigen a secciones reales del inventario, incluido un bloque de reportes rápidos.
+- Experiencia mejorada: el formulario muestra mensajes de estado y una etiqueta con la equivalencia automática del precio entre CLP y USD.
 

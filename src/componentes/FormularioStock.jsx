@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { formatearPrecio } from '../utils/precios'
 
 const categoriasPermitidas = ['calzado', 'ropa', 'accesorios']
 
@@ -129,6 +130,13 @@ function FormularioStock({ selectedProduct, onSave, onDelete, onClear, tipoCambi
     onDelete(form.id)
   }
 
+  const precioActual = modoPrecio === 'usd' ? form.precioUsd : form.precioClp
+  const equivalenteTexto = tipoCambio && precioActual !== ''
+    ? modoPrecio === 'usd'
+      ? `Equivalente: ${formatearPrecio(Number(precioActual) * Number(tipoCambio))} CLP`
+      : `Equivalente: ${formatearPrecio(Number(precioActual) / Number(tipoCambio))} USD`
+    : null
+
   return (
     <section id="form-stock" className="formulario-stock">
       <h2>{selectedProduct ? 'Editar o eliminar producto' : 'Crear nuevo producto'}</h2>
@@ -177,6 +185,7 @@ function FormularioStock({ selectedProduct, onSave, onDelete, onClear, tipoCambi
             placeholder={modoPrecio === 'usd' ? 'Precio en USD' : 'Precio en CLP'}
           />
           {tipoCambio ? <small className="ayuda-precio">Tasa de cambio: {tipoCambio}</small> : null}
+          {equivalenteTexto ? <small className="ayuda-precio">{equivalenteTexto}</small> : null}
           {errors.precio ? <span className="mensaje-error">{errors.precio}</span> : null}
         </div>
 
