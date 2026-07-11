@@ -7,8 +7,16 @@ function TarjetaProducto({ producto, onSelect, selected, onShowImage }) {
     accesorios: 'OIP.jpg',
   }
 
+  const esShortEntrenamiento = (nombre || '').trim().toLowerCase() === 'short de entrenamiento'
+
   let imagenSrc = null
-  if (producto.imagen) {
+  if (esShortEntrenamiento) {
+    try {
+      imagenSrc = new URL('../imagenes/OIP2.webp', import.meta.url).href
+    } catch {
+      imagenSrc = null
+    }
+  } else if (producto.imagen) {
     try {
       imagenSrc = new URL(`../imagenes/${producto.imagen}`, import.meta.url).href
     } catch {

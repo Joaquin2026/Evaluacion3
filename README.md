@@ -40,10 +40,6 @@ Uno de los productos tiene `stock: 0` para que la interfaz pueda manejar la aler
 ## Estructura del proyecto
 
 - `src/`
-  - `assets/`
-    - `hero.png`
-    - `react.svg`
-    - `vite.svg`
   - `componentes/`
     - `BarraNavegacion.jsx`
     - `FiltrosBusqueda.jsx`
